@@ -1,0 +1,8 @@
+﻿  задача 6.cpp
+задача 6.obj : error LNK2019: ссылка на неразрешенный внешний символ "double __cdecl LeftRectangle(double (__cdecl*)(double,double),double,double,double,double,double)" (?LeftRectangle@@YANP6ANNN@ZNNNNN@Z) в функции _main
+задача 6.obj : error LNK2019: ссылка на неразрешенный внешний символ "double __cdecl RightRectangle(double (__cdecl*)(double,double),double,double,double,double,double)" (?RightRectangle@@YANP6ANNN@ZNNNNN@Z) в функции _main
+задача 6.obj : error LNK2019: ссылка на неразрешенный внешний символ "double __cdecl MidRectangle(double (__cdecl*)(double,double),double,double,double,double,double)" (?MidRectangle@@YANP6ANNN@ZNNNNN@Z) в функции _main
+задача 6.obj : error LNK2019: ссылка на неразрешенный внешний символ "double __cdecl Trapeze(double (__cdecl*)(double,double),double,double,double,double,double)" (?Trapeze@@YANP6ANNN@ZNNNNN@Z) в функции _main
+задача 6.obj : error LNK2019: ссылка на неразрешенный внешний символ "double __cdecl Simpson(double (__cdecl*)(double,double),double,double,double,double,double)" (?Simpson@@YANP6ANNN@ZNNNNN@Z) в функции _main
+задача 6.obj : error LNK2019: ссылка на неразрешенный внешний символ "double __cdecl equation(double,double)" (?equation@@YANNN@Z) в функции _main
+G:\Прога\Второй сем\лаба 5\задача 6\Debug\задача 6.exe : fatal error LNK1120: неразрешенных внешних элементов: 6

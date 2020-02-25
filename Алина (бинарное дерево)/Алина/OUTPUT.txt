@@ -1,0 +1,42 @@
+Empty
+inserted
+List of elements:
+2016 
+inserted
+List of elements:
+1800 2016 
+not inserted
+List of elements:
+1800 2016 
+not deleted
+inserted
+inserted
+List of elements:
+164 171 1800 2016 
+not found after 4 comparisons
+found after 2 comparisons
+inserted
+not inserted
+List of elements:
+164 171 405 1800 2016 
+not deleted
+List of elements:
+164 171 405 1800 2016 
+not found after 4 comparisons
+List of elements:
+164 171 405 1800 2016 
+not deleted
+List of elements:
+164 171 405 1800 2016 
+deleted
+deleted
+List of elements:
+405 1800 2016 
+deleted
+List of elements:
+405 1800 
+inserted
+inserted
+inserted
+List of elements:
+111 405 444 555 1800 
