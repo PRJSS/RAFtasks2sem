@@ -19,6 +19,7 @@ const int DeltY[8] = {2,1,-1,-2,-2,-1,1,2};
 void Print(int Matrix[][Size]);
 void Horse(int Matrix[][Size],  int num, int i0, int j0);
 
+#pragma mark - int main() -
 int main()
 {
   setlocale(LC_ALL, "rus");

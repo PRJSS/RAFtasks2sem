@@ -13,7 +13,7 @@
 using namespace std;
 
 
-void searchh(int arr[], int &max, int n){
+void searchh(int *arr, int *max, int n){
     
     int i, j;
         int temp;
@@ -88,10 +88,10 @@ void searchh(int arr[], int &max, int n){
         
         
        //поиск максимального редкого
-        max=matrix[0][0];
+        *max=matrix[0][0];
         i=1;
         while(matrix[1][i]==matrix[1][i-1] || i==0){
-            if (matrix[0][i]>max){max=matrix[0][i];}
+            if (matrix[0][i]>*max){*max=matrix[0][i];}
             i++;
         }
 }
@@ -119,7 +119,7 @@ int main() {
     
     cout<<"//////////////////\n";
     
-    searchh(arr, max, n);
+    searchh(arr, &max, n);
     
     cout<<"\n"<<max<<" <<<<< ответ\n";
     
