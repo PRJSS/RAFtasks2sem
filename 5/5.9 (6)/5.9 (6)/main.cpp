@@ -22,7 +22,6 @@ void Horse(int Matrix[][Size],  int num, int i0, int j0);
 #pragma mark - int main() -
 int main()
 {
-  setlocale(LC_ALL, "rus");
   int Matrix[Size][Size] = {};
   Horse(Matrix, 1, 7, 7); //координаты 2 последних числа
 }
@@ -52,7 +51,7 @@ void Horse(int Matrix[][Size], int num, int i0, int j0)
       Print(Matrix);
       exit(0);
     }
-    if ((inew < 0) || (inew > Size - 1) || (jnew < 0) || (jnew > Size - 1) || Matrix[inew][jnew] != 0)
+    if ((inew < 0) || (inew > Size - 1) || (jnew < 0) || (jnew > Size - 1) || Matrix[inew][jnew] != 0) // проверка на существование хода
     {
       continue;
     }
