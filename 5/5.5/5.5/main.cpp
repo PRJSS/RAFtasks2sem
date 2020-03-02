@@ -1,18 +1,14 @@
 #include <iostream>
 #include <iomanip>
-#define _USE_MATH_DEFINES
 #include <cmath>
 using namespace std;
 
 //FOR PART A
-double HalfDivisionMethodA(double (*equation)(double), double leftborder = 0, double rightborder = 3, double eps = 0.000001);            //метод половинного деления
-double TangentMethodA(double (*equation)(double), double leftborder = 0, double rightborder = 3, double esp = 0.000001);                //метод касательных
 double ChordMethodA(double (*equation)(double), double leftborder = 0, double rightborder = 3, double esp = 0.000001);                    //метод хорд
-double equationA(double x);                                                                //уравнение для которого проводим рассчёты
+double equationA(double x);            //уравнение для которого проводим рассчёты
+
 
 //FOR PART B
-double HalfDivisionMethodB(double (*equation)(double, double), double leftborder = 0, double rightborder = 3, double argument = 0.9, double argumentlast = 1.2, double esp = 0.000001);            //метод половинного деления
-double TangentMethodB(double (*equation)(double, double), double leftborder = 0, double rightborder = 3, double argument = 0.9, double argumentlast = 1.2, double esp = 0.000001);                //метод касательных
 double ChordMethodB(double (*equation)(double, double), double leftborder = 0, double rightborder = 3, double argument = 0.9, double argumentlast = 1.2, double esp = 0.000001);                //метод хорд
 double equationB(double , double);                                                                                //уравнение для которого проводим рассчёты
 
@@ -63,7 +59,7 @@ double ChordMethodA (double (*equation)(double), double leftborder , double righ
 double ChordMethodB (double (*equation)(double, double), double leftborder , double rightborder , double argument , double argumentlast ,double esp)
 {
     cout << "S" << setw(15) << "X" << setw(15) << "F(x)" << setw(15) << "Counter" << endl;
-    for (; argument < argumentlast; argument += 0.02)
+    for (; argument < argumentlast; argument += 0.05)
     {
         int counter = 0;
         double leftborder1 = leftborder, rightborder1 = rightborder;
@@ -91,11 +87,11 @@ double ChordMethodB (double (*equation)(double, double), double leftborder , dou
 //for part a
 double equationA (double x)
 {
-    return (x + 1) * (x + 1) - 4;
+    return (x + 1) * (x + 1) - 5;
 }
 
 //for part b
 double equationB (double x, double argument)
 {
-    return cos(3.14 * x)* cos(3.14 * x)+x*x-1.5*argument;
+    return x*x-pow(2.7182818284, x)-1.5*argument;
 }
