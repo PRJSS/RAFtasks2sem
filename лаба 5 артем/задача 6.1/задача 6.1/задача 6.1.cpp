@@ -1,4 +1,5 @@
 #include "Function.h"
+#include <cmath>
 
 int main()
 {
@@ -13,11 +14,11 @@ int main()
 
 	
 
-		cout << "\n --------------------------------------------------------------------------- \n";
+		cout << "\n ----------------------- \n";
 		cout << setw(30) << " Simpson " << endl;
 		cout << "s |" << setw(14) << "t |" << setw(14) << "I(x) |" << setw(14) << "Counter |" << endl;
-		cout << 1 << setw(10) << 0.5 << setw(10) << Simpson(&equation) << setw(10) << 2 << setw(10);
-		cout << "\n --------------------------------------------------------------------------- \n";
+		cout << 1 << setw(15) << 0.5 << setw(15) << Simpson(&equation) << setw(12) << 2 << setw(10);
+		cout << "\n ----------------------- \n";
 	
 }
 

@@ -1,5 +1,6 @@
 #include "Function.h"
 
+
 double Simpson (double (*equation)(double, double, double),
 				double leftborder,
 				double x,
@@ -9,7 +10,7 @@ double Simpson (double (*equation)(double, double, double),
 				double esp,
 				int Number_of_partitions)
 {
-	double k1 = 0, k2 = 0,I;
+	double k1 = 0, k2 = 0;
 	const double h = (rightborder - leftborder) / Number_of_partitions;
 
 	for (int i = 1; i < Number_of_partitions; i += 2)
@@ -23,5 +24,5 @@ double Simpson (double (*equation)(double, double, double),
 
 double equation(double x, double s, double t)
 {
-	return t * ((1 + (s * x * s * x)) / (1 + x * x * x));
+	return pow(sin(pow(x,t)),2)/(sqrt(1+x*x*x));
 }
