@@ -62,33 +62,34 @@ void Sort_inserts(T* arr, int size)
 
 template < typename T,typename K >
 void quickSort(T*numbers, K left, K right)
+
 {
-	K pivot; // разрешающий элемент
-	K l_hold = left; //левая граница
-	K r_hold = right; // правая граница
+	K pivot;
+	K l_hold = left;
+	K r_hold = right;
 	pivot = numbers[left];
-	while (left < right) // пока границы не сомкнутся
+	while (left < right)
 	{
 		while ((numbers[right] >= pivot) && (left < right))
-			right--; // сдвигаем правую границу пока элемент [right] больше [pivot]
-		if (left != right) // если границы не сомкнулись
+			right--;
+		if (left != right)
 		{
-			numbers[left] = numbers[right]; // перемещаем элемент [right] на место разрешающего
-			left++; // сдвигаем левую границу вправо
+			numbers[left] = numbers[right];
+			left++;
 		}
 		while ((numbers[left] <= pivot) && (left < right))
-			left++; // сдвигаем левую границу пока элемент [left] меньше [pivot]
-		if (left != right) // если границы не сомкнулись
+			left++;
+		if (left != right)
 		{
-			numbers[right] = numbers[left]; // перемещаем элемент [left] на место [right]
-			right--; // сдвигаем правую границу вправо
+			numbers[right] = numbers[left];
+			right--;
 		}
 	}
-	numbers[left] = pivot; // ставим разрешающий элемент на место
+	numbers[left] = pivot;
 	pivot = left;
 	left = l_hold;
 	right = r_hold;
-	if (left < pivot) // Рекурсивно вызываем сортировку для левой и правой части массива
+	if (left < pivot) 
 		quickSort(numbers, left, pivot - 1);
 	if (right > pivot)
 		quickSort(numbers, pivot + 1, right);
