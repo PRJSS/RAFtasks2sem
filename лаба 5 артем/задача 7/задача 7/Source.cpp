@@ -4,6 +4,7 @@
 
 using namespace std;
 
+
 template < typename T >
 void Enter_increase(T* arr, int size)
 {
@@ -32,65 +33,68 @@ void Enter_random(T* arr, int size)
 {
 	for (int i = 0; i < size; i++)
 	{
-		int k = rand() % 10;
-		arr[i] = static_cast<T>(k+50);
+		int k = rand() % 20;
+		arr[i] = static_cast<T>(k);
 
 		cout << setw(4) << arr[i] ;
 	}
 }
 
+
 template < typename T >
-void Sort_inserts(T* arr, int size)
-{
-	int counter = 0;
-	for (int i = 1; i < size; i++)
-	{
-		for (int j = i; j > 0 && arr[j - 1] > arr[j]; j--)
-		{
-			counter++;
-			T tmp = arr[j - 1];
-			arr[j - 1] = arr[j];
-			arr[j] = tmp;
-		}
-	}
-	for (int i = 0; i < size; i++)
-	{
-		cout <<setw(2)<< arr[i];
-	}
-	cout <<"\n Counter "<< counter << endl;
+int binarySearch(T arr[], T item, T low, T high) {
+   if (high <= low)
+      return (item > arr[low])? (low + 1): low;
+      int mid = (low + high)/2;
+   if(item == arr[mid])
+      return mid+1;
+   if(item > arr[mid])
+      return binarySearch(arr, item, mid+1, high);
+      return binarySearch(arr, item, low, mid-1);
 }
 
-template < typename T,typename K >
-void quickSort(T*numbers, K left, K right)
 
+template < typename T >
+void BinaryInsertionSort(T arr[], int n) {
+    int counter=0;
+   int i, loc, j, selected;
+   for (i = 1; i < n; ++i) {
+      j = i - 1;
+      selected = arr[i];
+      loc = binarySearch(arr, selected, 0, j);
+      while (j >= loc) {
+         arr[j+1] = arr[j];
+         j--;
+          counter++;
+      }
+      arr[j+1] = selected;
+   }
+    for (int i = 0; i < n; i++)
+    {
+        cout <<" "<< arr[i];
+    }
+    cout <<"\n Counter "<< counter << endl;
+}
+
+
+
+template < typename T >
+void choicesSort(T arrayPtr, int length_array) // сортировка выбором
 {
-	K pivot;
-	K l_hold = left;
-	K r_hold = right;
-	pivot = numbers[left];
-	while (left < right)
-	{
-		while ((numbers[right] >= pivot) && (left < right))
-			right--;
-		if (left != right)
-		{
-			numbers[left] = numbers[right];
-			left++;
-		}
-		while ((numbers[left] <= pivot) && (left < right))
-			left++;
-		if (left != right)
-		{
-			numbers[right] = numbers[left];
-			right--;
-		}
-	}
-	numbers[left] = pivot;
-	pivot = left;
-	left = l_hold;
-	right = r_hold;
-	if (left < pivot) 
-		quickSort(numbers, left, pivot - 1);
-	if (right > pivot)
-		quickSort(numbers, pivot + 1, right);
+     int counter=0;
+    for (int repeat_counter = 0; repeat_counter < length_array; repeat_counter++)
+    {
+        int temp = arrayPtr[0]; // временная переменная для хранения значения перестановки
+        for (int element_counter = repeat_counter + 1; element_counter < length_array; element_counter++)
+        {
+            if (arrayPtr[repeat_counter] > arrayPtr[element_counter])
+            {
+                temp = arrayPtr[repeat_counter];
+                arrayPtr[repeat_counter] = arrayPtr[element_counter];
+                arrayPtr[element_counter] = temp;
+                counter++;
+                
+            }
+        }
+    }cout <<"\n Counter "<< counter << endl;
 }
