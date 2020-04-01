@@ -5,28 +5,28 @@
 using namespace std;
 
 
-template < typename T >
-void Enter_increase(T* arr, int size)
-{
-	for (int i = 0; i < size; i++)
-	{
-		arr[i] = static_cast<T>(i);
-
-		cout << setw(4) << arr[i] ;
-	}
-}
-
-template < typename T >
-void Enter_decrease(T* arr, int size)
-{
-	for (int i = size - 1; i >= 0; i--)
-	{
-		arr[i] = static_cast<T>(i);
-
-		cout << setw(4) << arr[i] ;
-	}
-
-}
+//template < typename T >
+//void Enter_increase(T* arr, int size)
+//{
+//	for (int i = 0; i < size; i++)
+//	{
+//		arr[i] = static_cast<T>(i);
+//
+//		cout << setw(4) << arr[i] ;
+//	}
+//}
+//
+//template < typename T >
+//void Enter_decrease(T* arr, int size)
+//{
+//	for (int i = size - 1; i >= 0; i--)
+//	{
+//		arr[i] = static_cast<T>(i);
+//
+//		cout << setw(4) << arr[i] ;
+//	}
+//
+//}
 
 template < typename T >
 void Enter_random(T* arr, int size)

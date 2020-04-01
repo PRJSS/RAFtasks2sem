@@ -1,63 +1,84 @@
-//
-//  main.cpp
-//  6.2 (8В)
-//
-//  Created by Danila Bernat on 3/20/20.
-//  Copyright © 2020 Danila Bernat. All rights reserved.
-//
-
 #include <iostream>
-#include <string>
 #include <fstream>
 using namespace std;
 
-void addMemory(double *&arr, int size){ //алгоритм амортизированного выделения памяти
-    
-    double *arrCopy = new double [size*2];
-    
-    for (int i=0; i<size; i++){
-        arrCopy[i]=arr[i];
+void solution_txt(ifstream& f, ifstream& g, ofstream& out) {
+    double a, b;
+    f >> a;
+    g >> b;
+
+    if (a == b) {
+        out << a << ' ';
+        f >> a;
     }
-    delete[] arr;
-    arr = arrCopy;
+
+    while (!f.eof() && !g.eof()) {
+        while (a > b && !g.eof()) {
+            g >> b;
+        }
+        if (a == b) {
+            out << a << ' ';
+            f >> a;
+        }
+        while (b > a && !f.eof()) {
+            f >> a;
+        }
+        if (a == b) {
+            out << a << ' ';
+            f >> a;
+        }
+    }
+}
+
+void solution_bin(ifstream& f, ifstream& g, ofstream& out) {
+    double a, b;
+    f.read(reinterpret_cast<char*> (&a), sizeof(double));
+    g.read(reinterpret_cast<char*> (&b), sizeof(double));
+
+    if (a == b) {
+        out.write(reinterpret_cast<char*> (&a), sizeof(double));
+        f.read(reinterpret_cast<char*> (&a), sizeof(double));
+    }
+
+    while (!f.eof() && !g.eof()) {
+        while (a > b && !g.eof()) {
+            g.read(reinterpret_cast<char*> (&b), sizeof(double));
+        }
+        if (a == b) {
+            f.read(reinterpret_cast<char*> (&a), sizeof(double));
+            f.read(reinterpret_cast<char*> (&a), sizeof(double));
+        }
+        while (b > a && !f.eof()) {
+            f.read(reinterpret_cast<char*> (&a), sizeof(double));
+        }
+        if (a == b) {
+            f.read(reinterpret_cast<char*> (&a), sizeof(double));
+            f.read(reinterpret_cast<char*> (&a), sizeof(double));
+        }
+    }
 }
 
 int main() {
-   
-    ofstream ansOut;
-    ifstream gin;
-    ifstream fin;
-    string pathF ="/Users/bernat/RAFtasks2sem/Random/6.2 (8В)/6.2 (8В)/f.txt";
-    string pathG ="/Users/bernat/RAFtasks2sem/Random/6.2 (8В)/6.2 (8В)/g.txt";
-    string pathAnswer ="/Users/bernat/RAFtasks2sem/Random/6.2 (8В)/6.2 (8В)/answer.txt";
-    
-    fin.open(pathF);
-    gin.open(pathG);
-    ansOut.open(pathAnswer);
-    
-    int f1, f2, g1, g2;
-    
-    fin>>f2; fin>>f1;
-    gin>>g2; gin>>g1;
-    
-    if (f2!=f1 && f2!=g1  && f2!=g2) ansOut<<f2<<"\n";
-    if (g2!=f1 && g2!=g1  && g2!=f2) ansOut<<g2<<"\n";
-    //проверяем переменные 2
-    
-    
-    
-    while (!fin.eof() || !gin.eof())
-    {
-        while (f1==f2) {f2=f1; fin>>f1;}//проверка на повторы
-        while (g1==g2) {g2=f1; gin>>g1;}//проверка на повторы
-        //при проверке на повторы в переменной 2 хранится повторяющееся число
-        
-        if (f1>g1){
-            f2=f1; fin>>f1;
-            
-        }
-        
-        
-    }
-    
+
+    ifstream f;
+    ifstream g;
+    ofstream out;
+
+    f.open("/Users/bernat/RAFtasks2sem/Random/6.2 (8В)/6.2 (8В)/f.txt");
+    g.open("/Users/bernat/RAFtasks2sem/Random/6.2 (8В)/6.2 (8В)/g.txt");
+    out.open("/Users/bernat/RAFtasks2sem/Random/6.2 (8В)/6.2 (8В)/answer.txt");
+    solution_txt(f, g, out);
+    f.close();
+    g.close();
+    out.close();
+
+    f.open("f.bin", ios::binary);
+    g.open("g.bin", ios::binary);
+    out.open("out.bin", ios::binary);
+    solution_bin(f, g, out);
+    f.close();
+    g.close();
+    out.close();
+
+    return 0;
 }

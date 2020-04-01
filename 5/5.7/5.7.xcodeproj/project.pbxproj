@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		657F3EC62417A969008A903F /* Source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 657F3EC42417A969008A903F /* Source.cpp */; };
-		657F3EC72417A969008A903F /* задача 7.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 657F3EC52417A969008A903F /* задача 7.cpp */; };
+		657F3EC72417A969008A903F /* 5.7.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 657F3EC52417A969008A903F /* 5.7.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,7 +26,7 @@
 /* Begin PBXFileReference section */
 		657F3EBA2417A951008A903F /* 5.7 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = 5.7; sourceTree = BUILT_PRODUCTS_DIR; };
 		657F3EC42417A969008A903F /* Source.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Source.cpp; path = "../../../лаба 5 артем/задача 7/задача 7/Source.cpp"; sourceTree = "<group>"; };
-		657F3EC52417A969008A903F /* задача 7.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "задача 7.cpp"; path = "../../../лаба 5 артем/задача 7/задача 7/задача 7.cpp"; sourceTree = "<group>"; };
+		657F3EC52417A969008A903F /* 5.7.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = 5.7.cpp; path = "../../../лаба 5 артем/задача 7/задача 7/5.7.cpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				657F3EC42417A969008A903F /* Source.cpp */,
-				657F3EC52417A969008A903F /* задача 7.cpp */,
+				657F3EC52417A969008A903F /* 5.7.cpp */,
 			);
 			path = 5.7;
 			sourceTree = "<group>";
@@ -122,7 +122,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				657F3EC72417A969008A903F /* задача 7.cpp in Sources */,
+				657F3EC72417A969008A903F /* 5.7.cpp in Sources */,
 				657F3EC62417A969008A903F /* Source.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

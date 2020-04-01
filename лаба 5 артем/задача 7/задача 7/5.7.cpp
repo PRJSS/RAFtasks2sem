@@ -14,10 +14,10 @@ int main()
 	double Darray[size];
 	float Farray[size];
 
-	Enter_increase(Carray, size);
-	cout << endl;
-	Enter_decrease(Farray, size);
-	cout << endl;
+//	Enter_increase(Carray, size);
+//	cout << endl;
+//	Enter_decrease(Farray, size);
+//	cout << endl;
 	Enter_random(Iarray, size);
 	cout << endl;
 	Enter_random(Darray, size);
