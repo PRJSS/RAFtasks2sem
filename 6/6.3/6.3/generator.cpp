@@ -172,19 +172,19 @@ void rand_fill_info(info* student, int N) {
 
 int main() {
 
-    const int N = 10;
+    ofstream fout;
+    fout.open("/Users/bernat/RAFtasks2sem/6/6.3/6.3/students.txt");
+    
+    const int N = 30;
 
     info student[N];
 
     rand_fill_info(student, N);
 
-    ofstream fout;
-    string pathG ="";
-    fout.open(pathG);
-    for (int i = 0; i<10; i++){
-        cout<<student[i].name<<" "<<student[i].age<<" "<<student[i].gender<<" "<<student[i].year<<" "<<student[i].performance<<" "<<"\n";
+    for (int i = 0; i<N; i++){
+        fout<<student[i].name<<" "<<student[i].age<<" "<<student[i].gender<<" "<<student[i].year<<" "<<student[i].performance<<" "<<"\n";
     }
     
-    
+    fout.close();
 return 0;
 }
