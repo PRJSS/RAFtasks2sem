@@ -12,15 +12,30 @@
 #include <vector>
 using namespace std;
 
+bool checkFile(string file_name) {
+   ifstream file;
+   file.open(file_name);
+   if(!file){
+    return false;}
+   else{
+       return true;
+   }
+}
+
 int main() {
    
     ofstream fout;
     ifstream fin;
-    string pathF ="/Users/bernat/RAFtasks2sem/6/6.2/6.2/f.txt";
-    string pathG ="/Users/bernat/RAFtasks2sem/6/6.2/6.2/g.txt";
-    int buffer;
+    string pathF ="f.txt";
+    string pathG ="g.txt";
     
-    vector<int> vec;
+    if(!checkFile(pathF)){
+        cout<<"File not found\n"; exit(1);}
+   
+    
+    float buffer;
+    
+    vector<float> vec;
     
     fin.open(pathF);
     fout.open(pathG);
@@ -41,4 +56,6 @@ int main() {
         i--;
     }
     
+    fin.close();
+    fout.close();
 }
