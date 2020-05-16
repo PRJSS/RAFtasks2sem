@@ -7,71 +7,105 @@
 //
 
 #include <iostream>
+#include <string>
 #include <fstream>
-#include <random>
-#include <ctime>
 
 using namespace std;
 
-int const MAX = 10000;
+int n = 30;
 
-void createFile(ofstream &outfile){
-    int v;
-    for (int i = 0; i < 2000000000; i++){
-        v = rand() % 9999 +  1;
-        outfile << v << ' ';
-    }
+void addMemory(short *&arr, int &size){ //алгоритм амортизированного выделения памяти
+short *arrCopy = new short [size*2] {0};
+for (int i=0; i<size; i++){
+    arrCopy[i]=arr[i];
+}
+delete[] arr;
+arr = arrCopy;
+    size=size*2;
 }
 
-int razmer(ifstream &infile, bool a[]){
-    int v;
-    int k = 0;
-    infile >> v;
-    while (!infile.eof()){
-        if (a[v] == 0){
-            k++;
-            a[v] = 1;
-        }
-        infile >> v;
-    }
-    return k;
+bool checkFile(string file_name) {
+   ifstream file;
+   file.open(file_name);
+   if(!file){
+    return false;}
+   else{
+       return true;
+   }
 }
 
-void zapolnenie(int otvet[], bool a[]){
-    int k = 0;
-    for (int i = 1; i <= MAX; i++){
-        if (a[i] == 1){
-            otvet[k] = i;
-            k++;
-        }
-    }
-}
-
-int main()
-{
+void generateData(string pathF){
+    srand(time(0));
+    ofstream fout;
+    fout.open(pathF,ios::binary);
     srand(time(NULL));
-    //ofstream fout("Chisla.txt");
-    //createFile(fout);
-    //fout.close();
-
-    bool a[MAX + 1] = {0};
-
-    ifstream fin("Chisla.txt");
-    if (!fin){
-        cout << "Err1";
-        return 1;
+    
+    int progress=0;
+    for (int i=0; i<n; i++){
+        fout<<1+rand()%10000<<"\n";
+        if(i%50000000==0){
+            progress=progress+5;
+            cout<<progress<<"%\n";
+        }
     }
-
-    int k = razmer(fin, a);
-    cout << k << ' ';
-
-    int *otvet = new  int [k];
-
-    zapolnenie(otvet, a);
-
-    for (int i = 0; i < k; i++){
-        cout << otvet[i] << ' ';
-    }
-
-    return 0;
+    fout.close();
 }
+
+
+int main() {
+    
+    ifstream fin;
+    string pathF ="data.txt";
+    
+    if (!checkFile(pathF)){
+        cout<<"Файл не найден\nНачат процесс генерации файла с данными:\n";
+        generateData(pathF);
+        fin.open(pathF);
+    }else{
+        fin.open(pathF);
+        if (fin.eof()){cout<<"Файл пуст.\n"; cout<<"Начат процесс генерации файла с данными:\n";
+        generateData(pathF);}
+    }
+    
+    short *array = new short [4] {0};
+    int size = 4;
+ 
+    fin>>array[0];
+    int i=0, j=1;
+    fin>>array[j];
+    while(array[j]==array[i]){fin>>array[j];}
+    
+    cout<<"Начало обработки:\n";
+    while(!fin.eof()){
+        
+        while(array[j]>=array[i]){
+            while(array[j]==array[i]){
+                           fin>>array[j];
+                           if(size==j+1){addMemory(array, size);}
+                       }
+            i++;
+            j++;
+            fin>>array[j];
+            if(size==j+1){addMemory(array, size);}
+            
+            while(array[j]==array[i]){
+                           fin>>array[j];
+                           if(size==j+1){addMemory(array, size);}
+                       }
+            
+        }
+        if(!fin.eof()){
+            i++;
+            j++;
+            fin>>array[j];
+            if (size==j+1){addMemory(array, size);}
+        }
+        
+    }
+    
+    cout<<"Ответ:\n";
+    for (i=0; i<size && array[i]!=0; i++){
+        cout<<array[i]<<"\n";
+    }
+}
+//123 1223 111123
