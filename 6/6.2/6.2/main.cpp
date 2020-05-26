@@ -22,23 +22,17 @@ bool checkFile(string file_name) {
    }
 }
 
-int main() {
-   
-    ofstream fout;
+void sortInFileG(string pathF){
+    
     ifstream fin;
-    string pathF ="f.txt";
+    ofstream fout;
     string pathG ="g.txt";
-    
-    if(!checkFile(pathF)){
-        cout<<"File not found\n"; exit(1);}
-   
-    
-    float buffer;
-    
-    vector<float> vec;
     
     fin.open(pathF);
     fout.open(pathG);
+    
+    float buffer;
+    vector<float> vec;
     
     while(!fin.eof()){
         fin>>buffer;
@@ -56,6 +50,18 @@ int main() {
         i--;
     }
     
-    fin.close();
     fout.close();
+    fin.close();
+}
+
+int main() {
+   
+    string pathF ="f.txt";
+    
+    if(!checkFile(pathF)){
+        cout<<"File not found\n"; exit(1);}
+    
+    sortInFileG(pathF);
+    
+    cout<<"Done\n";
 }

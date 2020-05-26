@@ -75,6 +75,8 @@ int main() {
     fin>>array[j];
     while(array[j]==array[i]){fin>>array[j];}
     
+    int min, pmin;
+    
     cout<<"Начало обработки:\n";
     while(!fin.eof()){
         
