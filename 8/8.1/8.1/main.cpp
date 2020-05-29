@@ -1,4 +1,9 @@
 #include "myVector.h"
+#include <fstream>
+#include <ostream>
+#include <iostream>
+#include <ctime>
+#include <random>
 
 using namespace std;
 
@@ -29,19 +34,6 @@ void zapolnenie(myVector <int> &otvet, myVector <bool> &a){
 int main(){
     srand(time(NULL));
 
-	int arr[] = {1, 3 ,2, 4};
-	myVector <bool> a;
-
-	myVector <> b (4, arr);
-	myVector <> c (b);
-
-	cout << a;
-	a[11] = 1;
-	cout << a;
-	a.randomElements();
-	cout << a;
-	cout << b << c;
-	cout << "\n==========================================\n";
 
 	myVector <bool> nalichie;
 	nalichie.newVectorSize(10001);
@@ -55,6 +47,6 @@ int main(){
 
     cout << chisla;
 
-	system("pause");
+	
 	return 0;
 }

@@ -1,7 +1,9 @@
-#ifndef MYVECTOR_H_INCLUDED
-#define MYVECTOR_H_INCLUDED
+#include <fstream>
+#include <ostream>
+#include <iostream>
+#include <ctime>
+#include <random>
 
-#include "Head.h"
 
 using namespace std;
 
@@ -92,13 +94,7 @@ U& myVector<U>::operator [] (int i){
 	return v_array[i];
 }
 
-//template<class U, int Size>
-istream& operator >> (istream& in, myVector <> &v){
-	cout << "Enter " << v.getSize() << " elements: ";
-	for (int i = 0; i < v.getSize(); i++){
-		in >> v[i];
-	}
-	return in;
-}
 
-#endif // MYVECTOR_H_INCLUDED
+
+
+
